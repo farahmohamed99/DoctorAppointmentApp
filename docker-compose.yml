@@ -1,0 +1,23 @@
+version: "1.0"
+
+services:
+  postgresql:
+    image: postgres:15-alpine
+    container_name: doctor-appointment-db
+    environment:
+      - POSTGRES_USER=DoctorAppointment
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=DoctorAppointment
+    ports:
+      - 5432:5432
+  web:
+    image: doctor-appointment-image
+    container_name: doctor-appointment-conatiner
+    build: .
+    depends_on: [ postgresql ]        
+    ports:
+      - 8080:80
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=User ID=DoctorAppointment;Password=password;Server=host.docker.internal;Port=5432;Database=DoctorAppointment;Pooling=true;Minimum Pool Size=0;Maximum Pool Size= 1024;ConnectionLifetime=0;
+    command: ["dotnet", "ef", "database update"]
