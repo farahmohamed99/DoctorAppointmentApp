@@ -21,14 +21,14 @@
 
 
 ### Run app locally
-- Clone the repository to your machine.
+- Clone the repository to your machine
 - Connect to Postgres DB
 - Run the application
 - Navigate to: `http://localhost:8080/swagger`
 
 
 ### Run app using docker
-- Clone the repository to your machine.
+- Clone the repository to your machine
 - Open the terminal and navigate to project directory: `cd Projects/../DoctorAppointmentApp/DoctorAppointmentApp`
 - Open docker
 - Open the terminal and run this command: `docker-compose up`
