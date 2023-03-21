@@ -32,7 +32,7 @@ public class AppointmentRepository : IAppointmentRepository
             
         if (patientId != null)
         {
-            appointments = GetAppointmentsForPatient(patientId);
+            appointments = appointments.Where(a => a.PatientId == patientId);
         }
             
         if (isPaid != null)
